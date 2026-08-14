@@ -1,0 +1,81 @@
+﻿[root@ip-172-31-15-118 conf.d]# mkdir /vat/www/dev-payfoundry
+mkdir: cannot create directory '/vat/www/dev-payfoundry': No such file or directory
+[root@ip-172-31-15-118 conf.d]# mkdir /var/www/dev-payfoundry
+[root@ip-172-31-15-118 conf.d]# mkdir /var/www/photo-payfoundry
+[root@ip-172-31-15-118 conf.d]# mkdir /var/www/payfoundry
+[root@ip-172-31-15-118 conf.d]# httpd -t
+AH00112: Warning: DocumentRoot [/var/www/dev-payfoudnry] does not exist
+AH00112: Warning: DocumentRoot [/var/www/payfoudnry] does not exist
+AH00112: Warning: DocumentRoot [/var/www/photo-payfoudnry] does not exist
+Syntax OK
+[root@ip-172-31-15-118 conf.d]# cd /var/www/
+[root@ip-172-31-15-118 www]# ls
+cgi-bin  dev-payfoundry  html  payfoundry  photo-payfoundry
+[root@ip-172-31-15-118 www]# vim payfoundry
+[root@ip-172-31-15-118 www]# cd payfoundry/
+[root@ip-172-31-15-118 payfoundry]# vim index.html
+[root@ip-172-31-15-118 payfoundry]# cd
+[root@ip-172-31-15-118 ~]# cd /var/www
+[root@ip-172-31-15-118 www]# ls
+cgi-bin  dev-payfoundry  html  payfoundry  photo-payfoundry
+[root@ip-172-31-15-118 www]# cd dev-payfoundry/
+[root@ip-172-31-15-118 dev-payfoundry]# vim index.html
+[root@ip-172-31-15-118 dev-payfoundry]# cd ..
+[root@ip-172-31-15-118 www]# cd photo-payfoundry/
+[root@ip-172-31-15-118 photo-payfoundry]# vim index.html
+[root@ip-172-31-15-118 photo-payfoundry]# cd
+[root@ip-172-31-15-118 ~]# systemctl restart httpd
+[root@ip-172-31-15-118 ~]# systemctl restart httpd
+[root@ip-172-31-15-118 ~]# cd /etc/httpd
+[root@ip-172-31-15-118 httpd]# ls
+conf  conf.d  conf.modules.d  logs  modules  run  state
+[root@ip-172-31-15-118 httpd]# cd conf.d
+[root@ip-172-31-15-118 conf.d]# ls
+autoindex.conf  dev.payfoundry.conf  payfoundry.conf  photo.payfoundry.conf  README  userdir.conf  
+welcome.conf
+[root@ip-172-31-15-118 conf.d]# vim dev.payfoundry.conf
+[root@ip-172-31-15-118 conf.d]#
+[root@ip-172-31-15-118 conf.d]# ls
+autoindex.conf  dev.payfoundry.conf  payfoundry.conf  photo.payfoundry.conf  README  userdir.conf  
+welcome.conf
+[root@ip-172-31-15-118 conf.d]# cd
+[root@ip-172-31-15-118 ~]# cd /etc/httpd/conf.d
+[root@ip-172-31-15-118 conf.d]# ;s
+-bash: syntax error near unexpected token `;'
+[root@ip-172-31-15-118 conf.d]# ls
+autoindex.conf  dev.payfoundry.conf  payfoundry.conf  photo.payfoundry.conf  README  userdir.conf  
+welcome.conf
+[root@ip-172-31-15-118 conf.d]# vim payfoundry.conf
+[root@ip-172-31-15-118 conf.d]# vim dev.payfoundry.conf
+[root@ip-172-31-15-118 conf.d]# vim photo.payfoundry.conf
+[root@ip-172-31-15-118 conf.d]# systemctl restart httpd
+[root@ip-172-31-15-118 conf.d]# httpd -t
+Syntax OK
+[root@ip-172-31-15-118 conf.d]# grep -R "DocumentRoot" /etc/httpd/conf.d/
+[root@ip-172-31-15-118 conf.d]# grep -R "documentroot" /etc/httpd/conf.d/
+/etc/httpd/conf.d/payfoundry.conf:documentroot /var/www/payfoundry
+/etc/httpd/conf.d/dev.payfoundry.conf:documentroot /var/www/dev-payfoundry
+/etc/httpd/conf.d/photo.payfoundry.conf:documentroot /var/www/photo-payfoundry
+[root@ip-172-31-15-118 conf.d]#
+[root@ip-172-31-15-118 conf.d]# cd /etc/httpd/conf.d
+[root@ip-172-31-15-118 conf.d]# ls
+autoindex.conf  dev.payfoundry.conf  payfoundry.conf  photo.payfoundry.conf  README  userdir.conf  
+welcome.conf
+[root@ip-172-31-15-118 conf.d]# vim pay
+[root@ip-172-31-15-118 conf.d]# ls
+autoindex.conf  dev.payfoundry.conf  payfoundry.conf  photo.payfoundry.conf  README  userdir.conf  
+welcome.conf
+[root@ip-172-31-15-118 conf.d]# vim payfoundry.conf
+
+
+
+[root@ip-172-31-15-118 conf.d]# vim dev.payfoundry.conf
+[root@ip-172-31-15-118 conf.d]# vim photo.payfoundry.conf
+[root@ip-172-31-15-118 conf.d]# systemctl reload httpd
+[root@ip-172-31-15-118 conf.d]# Read from remote host 13.63.131.33: Connection                      
+reset by peer
+Connection to 13.63.131.33 closed.
+client_loop: send disconnect: Connection reset by peer
+                                                                              ✗
+
+ O 2026-08-14 ►  14:02.27 ► 1 /home/mobaxterm ►
